@@ -2,7 +2,7 @@
 
 public abstract class EntidadeBase<Tipo>
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } // identificador único
 
     public abstract void AtualizarRegistro(Tipo registroAtualizado);
     public abstract string Validar();
