@@ -9,17 +9,24 @@ namespace ControleDeMedicamentos.WebApp.Controllers;
 public class FuncionarioController : Controller
 {
     private readonly RepositorioFuncionarioEmArquivo repositorioFuncionario; // dependência
+    private readonly ILogger<FuncionarioController> logger;
 
     // Inversão de controle
-    public FuncionarioController(RepositorioFuncionarioEmArquivo repositorioFuncionario)
+    public FuncionarioController(
+        RepositorioFuncionarioEmArquivo repositorioFuncionario,
+        ILogger<FuncionarioController> logger
+    )
     {
         this.repositorioFuncionario = repositorioFuncionario;
+        this.logger = logger;
     }
 
     [HttpGet]
     public IActionResult Index()
     {
         var funcionarios = repositorioFuncionario.SelecionarRegistros();
+
+        logger.LogInformation("{QuantidadeRegistros} registros foram selecionados.", funcionarios.Count);
 
         var visualizarVm = new VisualizarFuncionariosViewModel(funcionarios);
 
