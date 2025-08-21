@@ -68,11 +68,11 @@ public class Medicamento : EntidadeBase<Medicamento>
             RequisicoesSaida.Add(requisicaoSaida);
     }
 
-    public override void AtualizarRegistro(Medicamento registroEditado)
+    public override void AtualizarRegistro(Medicamento registroAtualizado)
     {
-        Nome = registroEditado.Nome;
-        Descricao = registroEditado.Descricao;
-        Fornecedor = registroEditado.Fornecedor;
+        Nome = registroAtualizado.Nome;
+        Descricao = registroAtualizado.Descricao;
+        Fornecedor = registroAtualizado.Fornecedor;
     }
 
     public override string Validar()

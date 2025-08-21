@@ -11,27 +11,22 @@ namespace ControleDeMedicamentos.Infraestrutura.Arquivos.Compartilhado;
 
 public class ContextoDados
 {
-    private string pastaArmazenamento = "C:\\temp";
-    private string arquivoArmazenamento = "dados-controle-medicamento.json";
+    public List<Fornecedor> Fornecedores { get; set; } = new List<Fornecedor>();
+    public List<Paciente> Pacientes { get; set; } = new List<Paciente>();
+    public List<Funcionario> Funcionarios { get; set; } = new List<Funcionario>();
+    public List<Medicamento> Medicamentos { get; set; } = new List<Medicamento>();
+    public List<RequisicaoEntrada> RequisicoesEntrada { get; set; } = new List<RequisicaoEntrada>();
+    public List<RequisicaoSaida> RequisicoesSaida { get; set; } = new List<RequisicaoSaida>();
+    public List<Prescricao> Prescricoes { get; set; } = new List<Prescricao>();
 
-    public List<Fornecedor> Fornecedores { get; set; }
-    public List<Paciente> Pacientes { get; set; }
-    public List<Funcionario> Funcionarios { get; set; }
-    public List<Medicamento> Medicamentos { get; set; }
-    public List<RequisicaoEntrada> RequisicoesEntrada { get; set; }
-    public List<RequisicaoSaida> RequisicoesSaida { get; set; }
-    public List<Prescricao> Prescricoes { get; set; }
+    private string pastaArmazenamento = Path.Combine(
+    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+    "ControleDeMedicamentos"
+    );
 
-    public ContextoDados()
-    {
-        Fornecedores = new List<Fornecedor>();
-        Pacientes = new List<Paciente>();
-        Funcionarios = new List<Funcionario>();
-        Medicamentos = new List<Medicamento>();
-        RequisicoesEntrada = new List<RequisicaoEntrada>();
-        RequisicoesSaida = new List<RequisicaoSaida>();
-        Prescricoes = new List<Prescricao>();
-    }
+    private string arquivoArmazenamento = "dados.json";
+
+    public ContextoDados() { }
 
     public ContextoDados(bool carregarDados) : this()
     {
