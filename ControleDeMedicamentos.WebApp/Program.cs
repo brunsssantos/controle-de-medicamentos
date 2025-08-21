@@ -29,14 +29,17 @@ public class Program
 
         var caminhoArquivoLogs = Path.Combine(caminhoAppData, "ControleDeMedicamentos", "erro.logs");
 
+        // Variável de ambiente para a chave de licença do New Relic
+        var licenseKey = builder.Configuration["NEWRELIC_LICENSE_KEY"];
+
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console() // Loga no console
             .WriteTo.File(caminhoArquivoLogs, LogEventLevel.Error) // Loga em um arquivo de logs
             .WriteTo.NewRelicLogs(
                 endpointUrl: "https://log-api.eu.newrelic.com/log/v1",
                 applicationName: "controle-de-medicamentos",
-                licenseKey: "eu01xx82bbe544cf4a72136351f3b468FFFFNRAL"
-            ) // Loga no New Relic
+                licenseKey: licenseKey
+            ) 
             .CreateLogger();
 
         builder.Logging.ClearProviders(); // Limpa os provedores de log padrão
