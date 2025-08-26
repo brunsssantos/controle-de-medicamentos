@@ -25,7 +25,7 @@ public class CadastrarMedicamentoViewModel
     {
         foreach (var f in fornecedoresDisponiveis)
         {
-            var selecionarVm = new SelectListItem(f.Nome, f.Id.ToString());
+            var selecionarVm = new SelectListItem(f.Nome, f.Id.ToString()); //tipo do próprio MVC - auxiliar em listas
 
             FornecedoresDisponiveis.Add(selecionarVm);
         }

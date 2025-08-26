@@ -73,7 +73,6 @@ public class ContextoDados
         Fornecedores = contextoArmazenado.Fornecedores;
         Pacientes = contextoArmazenado.Pacientes;
         Funcionarios = contextoArmazenado.Funcionarios;
-
         Medicamentos = contextoArmazenado.Medicamentos;
         RequisicoesEntrada = contextoArmazenado.RequisicoesEntrada;
         RequisicoesSaida = contextoArmazenado.RequisicoesSaida;
