@@ -32,6 +32,8 @@ public class Program
         // Variável de ambiente para a chave de licença do New Relic
         var licenseKey = builder.Configuration["NEWRELIC_LICENSE_KEY"];
 
+
+
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console() // Loga no console
             .WriteTo.File(caminhoArquivoLogs, LogEventLevel.Error) // Loga em um arquivo de logs
