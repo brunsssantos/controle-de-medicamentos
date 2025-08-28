@@ -42,16 +42,4 @@ public class Program
         app.Run();
     }
 
-
-
-    private static void AddCamadaInfraestutura(WebApplicationBuilder builder)
-    {
-        builder.Services.AddScoped((_) => new ContextoDados(true)); //delegate / lambda expression
-        builder.Services.AddScoped<RepositorioFuncionarioEmArquivo>(); // Injeta uma instância do serviço por requisição (ação) HTTP, essa instância acompanha a requisição do cliente
-        builder.Services.AddScoped<RepositorioFornecedorEmArquivo>();
-        builder.Services.AddScoped<RepositorioMedicamentoEmArquivo>();
-        builder.Services.AddScoped<RepositorioPacienteEmArquivo>();
-        builder.Services.AddScoped<RepositorioPrescricaoEmArquivo>();
-        builder.Services.AddScoped<RepositorioRequisicaoMedicamentoEmArquivo>();
-    }
 }
