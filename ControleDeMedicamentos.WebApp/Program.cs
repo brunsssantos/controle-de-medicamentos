@@ -1,13 +1,4 @@
-using ControleDeMedicamentos.Infraestrutura.Arquivos.Compartilhado;
-using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloFornecedor;
-using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloFuncionario;
-using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloMedicamento;
-using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloPaciente;
-using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloPrescricao;
-using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloRequisicaoMedicamento;
 using ControleDeMedicamentos.WebApp.DependencyInjection;
-using Serilog;
-using Serilog.Events;
 
 namespace ControleDeMedicamentos.WebApp;
 
