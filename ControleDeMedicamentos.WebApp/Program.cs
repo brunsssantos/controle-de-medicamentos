@@ -5,6 +5,7 @@ using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloMedicamento;
 using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloPaciente;
 using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloPrescricao;
 using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloRequisicaoMedicamento;
+using ControleDeMedicamentos.WebApp.DependencyInjection;
 using Serilog;
 using Serilog.Events;
 
@@ -17,36 +18,10 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Injeção de dependências criadas por nós
-        builder.Services.AddScoped((_) => new ContextoDados(true)); //delegate / lambda expression
-        builder.Services.AddScoped<RepositorioFuncionarioEmArquivo>(); // Injeta uma instância do serviço por requisição (ação) HTTP, essa instância acompanha a requisição do cliente
-        builder.Services.AddScoped<RepositorioFornecedorEmArquivo>();
-        builder.Services.AddScoped<RepositorioMedicamentoEmArquivo>();
-        builder.Services.AddScoped<RepositorioPacienteEmArquivo>();
-        builder.Services.AddScoped<RepositorioPrescricaoEmArquivo>();
-        builder.Services.AddScoped<RepositorioRequisicaoMedicamentoEmArquivo>();
+        builder.Services.AddCamadaInfraestutura();
 
-        var caminhoAppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-
-        var caminhoArquivoLogs = Path.Combine(caminhoAppData, "ControleDeMedicamentos", "erro.logs");
-
-        // Variável de ambiente para a chave de licença do New Relic
-        var licenseKey = builder.Configuration["NEWRELIC_LICENSE_KEY"];
-
-
-
-        Log.Logger = new LoggerConfiguration()
-            .WriteTo.Console() // Loga no console
-            .WriteTo.File(caminhoArquivoLogs, LogEventLevel.Error) // Loga em um arquivo de logs
-            .WriteTo.NewRelicLogs(
-                endpointUrl: "https://log-api.eu.newrelic.com/log/v1",
-                applicationName: "controle-de-medicamentos",
-                licenseKey: licenseKey
-            ) 
-            .CreateLogger();
-
-        builder.Logging.ClearProviders(); // Limpa os provedores de log padrão
-
-        builder.Services.AddSerilog(); // Adiciona o Serilog como provedor de log
+        //Static + Extension Method
+        builder.Services.AddSerilogConfig(builder.Logging, builder.Configuration);
 
         // Injeção de dependências da Microsoft.
         builder.Services.AddControllersWithViews();
@@ -65,5 +40,18 @@ public class Program
             pattern: "{controller=Home}/{action=Index}/{id?}");
 
         app.Run();
+    }
+
+
+
+    private static void AddCamadaInfraestutura(WebApplicationBuilder builder)
+    {
+        builder.Services.AddScoped((_) => new ContextoDados(true)); //delegate / lambda expression
+        builder.Services.AddScoped<RepositorioFuncionarioEmArquivo>(); // Injeta uma instância do serviço por requisição (ação) HTTP, essa instância acompanha a requisição do cliente
+        builder.Services.AddScoped<RepositorioFornecedorEmArquivo>();
+        builder.Services.AddScoped<RepositorioMedicamentoEmArquivo>();
+        builder.Services.AddScoped<RepositorioPacienteEmArquivo>();
+        builder.Services.AddScoped<RepositorioPrescricaoEmArquivo>();
+        builder.Services.AddScoped<RepositorioRequisicaoMedicamentoEmArquivo>();
     }
 }
