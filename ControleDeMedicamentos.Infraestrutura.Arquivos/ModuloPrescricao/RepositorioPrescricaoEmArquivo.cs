@@ -3,12 +3,12 @@ using ControleDeMedicamentos.Infraestrutura.Arquivos.Compartilhado;
 
 namespace ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloPrescricao;
 
-public class RepositorioPrescricaoEmArquivo
+public class RepositorioPrescricaoEmArquivo : RepositorioBaseEmArquivo<Prescricao>
 {
     private ContextoDados contexto;
     private List<Prescricao> registros = new List<Prescricao>();
 
-    public RepositorioPrescricaoEmArquivo(ContextoDados contexto)
+    public RepositorioPrescricaoEmArquivo(ContextoDados contexto) : base(contexto)
     {
         this.contexto = contexto;
         registros = contexto.Prescricoes;
@@ -24,5 +24,10 @@ public class RepositorioPrescricaoEmArquivo
     public List<Prescricao> SelecionarRegistros()
     {
         return registros;
+    }
+
+    protected override List<Prescricao> ObterRegistros()
+    {
+        return contexto.Prescricoes;
     }
 }

@@ -4,7 +4,6 @@ using ControleDeMedicamentos.Dominio.ModuloFornecedor;
 using ControleDeMedicamentos.Dominio.ModuloPaciente;
 using ControleDeMedicamentos.Dominio.ModuloFuncionario;
 using ControleDeMedicamentos.Dominio.ModuloMedicamento;
-using ControleDeMedicamentos.Dominio.ModuloRequisicaoMedicamentos;
 using ControleDeMedicamentos.Dominio.ModuloPrescricao;
 
 namespace ControleDeMedicamentos.Infraestrutura.Arquivos.Compartilhado;
@@ -15,8 +14,6 @@ public class ContextoDados
     public List<Paciente> Pacientes { get; set; } = new List<Paciente>();
     public List<Funcionario> Funcionarios { get; set; } = new List<Funcionario>();
     public List<Medicamento> Medicamentos { get; set; } = new List<Medicamento>();
-    public List<RequisicaoEntrada> RequisicoesEntrada { get; set; } = new List<RequisicaoEntrada>();
-    public List<RequisicaoSaida> RequisicoesSaida { get; set; } = new List<RequisicaoSaida>();
     public List<Prescricao> Prescricoes { get; set; } = new List<Prescricao>();
 
     private string pastaArmazenamento = Path.Combine(
@@ -74,8 +71,6 @@ public class ContextoDados
         Pacientes = contextoArmazenado.Pacientes;
         Funcionarios = contextoArmazenado.Funcionarios;
         Medicamentos = contextoArmazenado.Medicamentos;
-        RequisicoesEntrada = contextoArmazenado.RequisicoesEntrada;
-        RequisicoesSaida = contextoArmazenado.RequisicoesSaida;
         Prescricoes = contextoArmazenado.Prescricoes;
     }
 }
