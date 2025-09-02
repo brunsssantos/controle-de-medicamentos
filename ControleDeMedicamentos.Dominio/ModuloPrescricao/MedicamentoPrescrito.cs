@@ -1,5 +1,4 @@
 ﻿using ControleDeMedicamentos.Dominio.ModuloMedicamento;
-using System.Diagnostics.CodeAnalysis;
 
 namespace ControleDeMedicamentos.Dominio.ModuloPrescricao;
 
@@ -11,7 +10,6 @@ public class MedicamentoPrescrito
     public string Periodo { get; set; }
     public int Quantidade { get; set; }
 
-    [ExcludeFromCodeCoverage]
     public MedicamentoPrescrito() { }
 
     public MedicamentoPrescrito(Medicamento medicamento, string dosagem, string periodo, int quantidade)

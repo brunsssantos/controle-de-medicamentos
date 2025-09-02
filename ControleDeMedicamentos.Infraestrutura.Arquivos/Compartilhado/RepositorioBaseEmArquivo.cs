@@ -66,6 +66,6 @@ public abstract class RepositorioBaseEmArquivo<Tipo> where Tipo : EntidadeBase<T
     {
         var registro = registros.Find(r => r.Id == idSelecionado); //expressão lambda
 
-        return null;
+        return registro;
     }
 }
