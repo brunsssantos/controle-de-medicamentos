@@ -17,6 +17,7 @@ public class ContextoDados
     public List<Medicamento> Medicamentos { get; set; } = new List<Medicamento>();
     public List<Prescricao> Prescricoes { get; set; } = new List<Prescricao>();
     public List<RequisicaoEntrada> RequisicoesEntrada { get; set; } = new List<RequisicaoEntrada>();
+    public List<RequisicaoSaida> RequisicoesSaida { get; set; } = new List<RequisicaoSaida>();
 
     private string pastaArmazenamento = Path.Combine(
     Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
@@ -75,5 +76,6 @@ public class ContextoDados
         Medicamentos = contextoArmazenado.Medicamentos;
         Prescricoes = contextoArmazenado.Prescricoes;
         RequisicoesEntrada = contextoArmazenado.RequisicoesEntrada;
+        RequisicoesSaida = contextoArmazenado.RequisicoesSaida;
     }
 }
