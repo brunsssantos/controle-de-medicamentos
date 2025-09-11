@@ -7,19 +7,20 @@ public class Paciente : EntidadeBase<Paciente>
 {
     public string Nome { get; set; }
     public string Telefone { get; set; }
-    public string CartaoSus { get; set; }
     public string Cpf { get; set; }
+    public string CartaoSus { get; set; }
 
 
     public Paciente() { }
 
-    public Paciente(string nome, string telefone, string cartaoSus, string cpf) : this()
+    public Paciente(string nome, string telefone, string cpf, string cartaoSus) : this()
     {
         Id = Guid.NewGuid();
         Nome = nome;
         Telefone = telefone;
-        CartaoSus = cartaoSus;
         Cpf = cpf;
+        CartaoSus = cartaoSus;
+        
     }
 
     public override void AtualizarRegistro(Paciente registroEditado)
