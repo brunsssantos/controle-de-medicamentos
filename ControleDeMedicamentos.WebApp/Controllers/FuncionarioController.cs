@@ -1,5 +1,5 @@
 ﻿using ControleDeMedicamentos.Dominio.ModuloFuncionario;
-using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloFuncionario;
+using ControleDeMedicamentos.Infraestrutura.SqlServer.ModuloFuncionario;
 using ControleDeMedicamentos.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,12 +7,12 @@ namespace ControleDeMedicamentos.WebApp.Controllers;
 
 public class FuncionarioController : Controller
 {
-    private readonly RepositorioFuncionarioEmArquivo repositorioFuncionario; // dependência
+    private readonly RepositorioFuncionarioEmSql repositorioFuncionario; // dependência
     private readonly ILogger<FuncionarioController> logger;
 
     // Inversão de controle
     public FuncionarioController(
-        RepositorioFuncionarioEmArquivo repositorioFuncionario,
+        RepositorioFuncionarioEmSql repositorioFuncionario,
         ILogger<FuncionarioController> logger
     )
     {

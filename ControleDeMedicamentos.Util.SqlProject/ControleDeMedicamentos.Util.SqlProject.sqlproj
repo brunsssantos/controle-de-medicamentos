@@ -9,8 +9,7 @@
     <ProjectGuid>{871aa1cc-e1d0-45ae-b035-441b680de283}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
+    <RootPath />
     <RootNamespace>ControleDeMedicamentos.Util.SqlProject</RootNamespace>
     <AssemblyName>ControleDeMedicamentos.Util.SqlProject</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
@@ -48,7 +47,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
   </PropertyGroup>
@@ -59,5 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="TBPaciente.sql" />
+    <Build Include="TBFuncionario.sql" />
+    <Build Include="TBFornecedor.sql" />
+    <Build Include="TBMedicamento.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="ControleDeMedicamentos.Util.SqlProject.refactorlog" />
   </ItemGroup>
 </Project>
