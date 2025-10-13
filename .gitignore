@@ -361,3 +361,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/ControleDeMedicamentos.Util.SqlProject/ControleDeMedicamentos.Util.SqlProject.refactorlog
