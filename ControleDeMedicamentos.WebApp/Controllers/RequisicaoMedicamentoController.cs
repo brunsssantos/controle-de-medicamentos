@@ -1,10 +1,10 @@
 ﻿using ControleDeMedicamentos.Dominio.ModuloRequisicaoMedicamento;
 using ControleDeMedicamentos.Infraestrutura.Arquivos.Compartilhado;
-using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloFuncionario;
-using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloMedicamento;
-using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloPaciente;
-using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloPrescricao;
-using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloRequisicaoMedicamento;
+using ControleDeMedicamentos.Infraestrutura.SqlServer.ModuloFuncionario;
+using ControleDeMedicamentos.Infraestrutura.SqlServer.ModuloMedicamento;
+using ControleDeMedicamentos.Infraestrutura.SqlServer.ModuloPaciente;
+using ControleDeMedicamentos.Infraestrutura.SqlServer.ModuloPrescricao;
+using ControleDeMedicamentos.Infraestrutura.SqlServer.ModuloRequisicaoMedicamento;
 using ControleDeMedicamentos.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,18 +14,18 @@ namespace ControleDeMedicamentos.WebApp.Controllers;
 public class RequisicaoMedicamentoController : Controller
 {
     private readonly ContextoDados contexto;
-    private readonly RepositorioRequisicaoMedicamentoEmArquivo repositorioRequisicaoMedicamento;
-    private readonly RepositorioMedicamentoEmArquivo repositorioMedicamento;
-    private readonly RepositorioFuncionarioEmArquivo repositorioFuncionario;
-    private readonly RepositorioPacienteEmArquivo repositorioPaciente;
-    private readonly RepositorioPrescricaoEmArquivo repositorioPrescricao;
+    private readonly RepositorioRequisicaoMedicamentoEmSql repositorioRequisicaoMedicamento;
+    private readonly RepositorioMedicamentoEmSql repositorioMedicamento;
+    private readonly RepositorioFuncionarioEmSql repositorioFuncionario;
+    private readonly RepositorioPacienteEmSql repositorioPaciente;
+    private readonly RepositorioPrescricaoEmSql repositorioPrescricao;
     public RequisicaoMedicamentoController( //inicializa via construtor
         ContextoDados contexto,
-        RepositorioRequisicaoMedicamentoEmArquivo repositorioRequisicaoMedicamento,
-        RepositorioMedicamentoEmArquivo repositorioMedicamento,
-        RepositorioFuncionarioEmArquivo repositorioFuncionario,
-        RepositorioPacienteEmArquivo repositorioPaciente,
-        RepositorioPrescricaoEmArquivo repositorioPrescricao
+        RepositorioRequisicaoMedicamentoEmSql repositorioRequisicaoMedicamento,
+        RepositorioMedicamentoEmSql repositorioMedicamento,
+        RepositorioFuncionarioEmSql repositorioFuncionario,
+        RepositorioPacienteEmSql repositorioPaciente,
+        RepositorioPrescricaoEmSql repositorioPrescricao
     )
     {
         this.contexto = contexto;

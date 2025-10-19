@@ -1,10 +1,10 @@
 ﻿using ControleDeMedicamentos.Infraestrutura.Arquivos.Compartilhado;
-using ControleDeMedicamentos.Infraestrutura.Arquivos.ModuloRequisicaoMedicamento;
 using ControleDeMedicamentos.Infraestrutura.SqlServer.ModuloFornecedor;
 using ControleDeMedicamentos.Infraestrutura.SqlServer.ModuloFuncionario;
 using ControleDeMedicamentos.Infraestrutura.SqlServer.ModuloMedicamento;
 using ControleDeMedicamentos.Infraestrutura.SqlServer.ModuloPaciente;
 using ControleDeMedicamentos.Infraestrutura.SqlServer.ModuloPrescricao;
+using ControleDeMedicamentos.Infraestrutura.SqlServer.ModuloRequisicaoMedicamento;
 using Microsoft.Data.SqlClient;
 using System.Data;
 
@@ -25,6 +25,7 @@ public static class InfraestruturaConfig
         services.AddScoped<RepositorioFuncionarioEmSql>();
         services.AddScoped<RepositorioMedicamentoEmSql>();
         services.AddScoped<RepositorioPrescricaoEmSql>();
+        services.AddScoped<RepositorioRequisicaoMedicamentoEmSql>();
 
 
         services.AddScoped((_) => new ContextoDados(true)); //delegate / lambda expression
@@ -33,6 +34,6 @@ public static class InfraestruturaConfig
        // services.AddScoped<RepositorioMedicamentoEmArquivo>();
        // services.AddScoped<RepositorioPacienteEmArquivo>();
        // services.AddScoped<RepositorioPrescricaoEmArquivo>();
-        services.AddScoped<RepositorioRequisicaoMedicamentoEmArquivo>();
+       // services.AddScoped<RepositorioRequisicaoMedicamentoEmArquivo>();
     }
 }

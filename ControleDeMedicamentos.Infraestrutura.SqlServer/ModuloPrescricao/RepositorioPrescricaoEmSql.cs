@@ -32,7 +32,7 @@ public class RepositorioPrescricaoEmSql(IDbConnection connection)
             PacienteId = nova.Paciente.Id
         }, tx);
 
-        const string insertMedicamento = @"
+        const string insertMedicamento = @"  v 
             INSERT INTO [TBMedicamentoPrescrito]
                 ([Id], [PrescricaoId], [MedicamentoId], [Dosagem], [Periodo], [Quantidade])
             VALUES
@@ -67,7 +67,7 @@ public class RepositorioPrescricaoEmSql(IDbConnection connection)
                    [PacienteId]   = @PacienteId
              WHERE [Id] = @Id;
         ";
-
+ 
         connection.Open();
 
         var tx = connection.BeginTransaction(); // transação de banco de dados 
@@ -203,5 +203,10 @@ public class RepositorioPrescricaoEmSql(IDbConnection connection)
     public Prescricao? SelecionarRegistroPorId(Guid id)
     {
         return SelecionarRegistros().FirstOrDefault(x => x.Id.Equals(id));
+    }
+
+    public List<Prescricao> SelecionarPrescricoesDoPaciente(Guid pacienteId)
+    {
+        return SelecionarRegistros().Where(x => x.Paciente.Id.Equals(pacienteId)).ToList();
     }
 }

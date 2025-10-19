@@ -1,5 +1,4 @@
 ﻿using ControleDeMedicamentos.Dominio.ModuloPrescricao;
-using ControleDeMedicamentos.Infraestrutura.Arquivos.Compartilhado;
 using ControleDeMedicamentos.Infraestrutura.SqlServer.ModuloMedicamento;
 using ControleDeMedicamentos.Infraestrutura.SqlServer.ModuloPaciente;
 using ControleDeMedicamentos.Infraestrutura.SqlServer.ModuloPrescricao;
