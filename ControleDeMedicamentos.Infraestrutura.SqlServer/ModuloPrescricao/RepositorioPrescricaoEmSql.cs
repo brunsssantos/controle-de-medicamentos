@@ -32,7 +32,7 @@ public class RepositorioPrescricaoEmSql(IDbConnection connection)
             PacienteId = nova.Paciente.Id
         }, tx);
 
-        const string insertMedicamento = @"  v 
+        const string insertMedicamento = @"  
             INSERT INTO [TBMedicamentoPrescrito]
                 ([Id], [PrescricaoId], [MedicamentoId], [Dosagem], [Periodo], [Quantidade])
             VALUES
